@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Philligram</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    :root {
+      --violet-start: #8e2de2;
+      --violet-end: #4a00e0;
+    }
+
+    body {
+      background: #0f0f0f;
+      color: #e8e8e8;
+      line-height: 1.7;
+      padding: 30px 16px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Логотип + заголовок */
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 24px;
+      border-radius: 12px;
+      filter: drop-shadow(0 4px 10px rgba(142, 45, 226, 0.4));
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, var(--violet-start), var(--violet-end));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: #aaa;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Общие стили блоков */
+    .section {
+      background: #181818;
+      border-radius: 18px;
+      padding: 36px;
+      margin-bottom: 50px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .section h2 {
+      font-size: 1.9rem;
+      margin-bottom: 24px;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Описание */
+    .description p {
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+      color: #d0d0d0;
+    }
+
+    /* Преимущества */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .feature-item {
+      background: #222;
+      padding: 20px;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    /* Скриншоты */
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 20px;
+    }
+
+    .screenshots img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Платформы */
+    .platforms {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .platform {
+      background: #1a1a1a;
+      border-radius: 18px;
+      padding: 36px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    .platform h2 {
+      font-size: 1.7rem;
+      margin-bottom: 26px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 32px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 14px;
+      transition: all 0.25s ease;
+      color: white;
+      background: linear-gradient(135deg, var(--violet-start), var(--violet-end));
+      box-shadow: 0 5px 18px rgba(142, 45, 226, 0.4);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 22px rgba(142, 45, 226, 0.6);
+    }
+
+    .btn.android-alt {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      box-shadow: 0 5px 18px rgba(106, 17, 203, 0.4);
+    }
+
+    .btn.android-alt:hover {
+      box-shadow: 0 7px 22px rgba(106, 17, 203, 0.6);
+    }
+
+    /* FAQ / Поддержка */
+    .faq p {
+      margin-bottom: 14px;
+      color: #ccc;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      color: #777;
+      border-top: 1px solid #2a2a2a;
+      font-size: 0.95rem;
+    }
+
+    /* Адаптив */
+    @media (min-width: 768px) {
+      .buttons {
+        flex-direction: row;
+        gap: 26px;
+      }
+      h1 {
+        font-size: 3.3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 0 10px;
+      }
+      h1 {
+        font-size: 2.3rem;
+      }
+      .section, .platform {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Логотип + заголовок -->
+    <div class="hero">
+      <img src="logo.png" alt="Philligram Logo" class="logo">
+      <h1>Philligram</h1>
+      <p class="subtitle">Современный Telegram-клиент с уникальными возможностями.</p>
+    </div>
+
+    <!-- Описание -->
+    <div class="section description">
+      <h2>Почему Philligram?</h2>
+      <p>потому что Philligram создан пользователем для пользователя и решает существующие проблемы.</p>
+      <p>потому что Philligram это приложения которое не урезает функции телеграмма а лишь добавлает</p>
+      <p>потому что Philligram это модульная надстрока над исходным кодом телеграмма блогадря чему обновления выходят парральено телеграмму.из за чего Philligram технические не устореет и будет обновлятся максимально быстро</p>
+      <p>потому что Philligram это OpenSource проект и можно быть уверенным в чесности кода</p>
+    </div>
+
+    <!-- Преимущества -->
+    <div class="section">
+      <h2>Возможности</h2>
+      <div class="features">
+        <div class="feature-item">
+          <strong>✨ Красивый UI</strong>
+          <p>Фиолетовая тема и плавные анимации</p>
+        </div>
+        <div class="feature-item">
+          <strong>⚡ Быстрый</strong>
+          <p>Оптимизированная работа без лагов</p>
+        </div>
+        <div class="feature-item">
+          <strong></strong>
+          <p></p>
+        </div>
+        <div class="feature-item">
+          <strong>🎨 полноая Кастомизация(в разроботке)</strong>
+          <p>Меняйте всё под себя</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Скриншоты -->
+    <div class="section screenshots">
+      <h2>Скриншоты</h2>
+      <div class="screenshots-grid">
+        <img src="https://via.placeholder.com/300x600/25003e/ffffff?text=Чат" alt="Чат">
+        <img src="https://via.placeholder.com/300x600/25003e/ffffff?text=Профиль" alt="Профиль">
+        <img src="https://via.placeholder.com/300x600/25003e/ffffff?text=Настройки" alt="Настройки">
+        <!-- Замените на свои изображения: <img src="screens/1.jpg"> -->
+      </div>
+    </div>
+
+    <!-- Платформы -->
+    <div class="platforms">
+      <!-- Windows -->
+      <div class="platform">
+        <h2>Для Windows</h2>
+        <div class="buttons">
+          <a href="YOUR_WINDOWS_INSTALLER_LINK" class="btn" download>Скачать</a>
+        </div>
+      </div>
+
+      <!-- Android -->
+      <div class="platform">
+        <h2>Для Android</h2>
+        <div class="buttons">
+          <a href="YOUR_RUSTORE_LINK" class="btn">RuStore</a>
+          <a href="YOUR_APK_FILE_PATH.apk" class="btn android-alt" download>Скачать APK</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Поддержка / FAQ -->
+    <div class="section faq">
+      <h2>Поддержка</h2>
+      <p>Возникли вопросы? Напишите нам в Telegram: <strong>@FatLifeMatter</strong></p>
+      <p>Обновления выходят парраленьно офицальному телеграмму. Следите за новостями!</p>
+    </div>
+
+    <footer>
+      © 2025 Philligram. Telegram — зарегистрированный товарный знак Telegram FZ-LLC.
+    </footer>
+  </div>
+</body>
+</html>
